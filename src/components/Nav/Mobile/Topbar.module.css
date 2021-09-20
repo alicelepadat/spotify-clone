@@ -1,0 +1,95 @@
+.NavToolbar {
+    width: auto;
+    max-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--Black);
+    z-index: 1;
+}
+
+.NavHeader {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.NavLogo,
+.NavActions {
+    padding: 1rem;
+}
+
+.NavLogo>img {
+    width: 30px;
+    height: auto;
+}
+
+.NavActions {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+}
+
+.NavSearch>svg,
+.NavToggle>svg {
+    color:white;
+}
+
+.NavExternal {
+    background-color: white;
+    border-radius: 30px;
+    padding: 0.8rem 2rem;
+    margin: 0 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.8em;
+}
+
+.NavExternal:hover {
+    background-color: var(--Green);
+}
+
+.NavClose>svg:hover {
+    color:var(--Green);
+}
+
+.NavItems {
+    width: 100%;
+    height: 100vh;
+}
+
+.NavItem {
+    padding: 0.5rem 2rem;
+    color: white;
+    font-size: medium;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.NavItem:nth-child(-n+2) {
+    font-size: x-large;
+}
+
+.NavItem:nth-child(2) {
+    position: relative;
+    padding-bottom: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.NavItem:nth-child(2):before {
+    content: " ";
+    position: absolute;
+    bottom: 0;
+    left: 2rem;
+    right: 0;
+    width: 1rem;
+    border: 1px double white;
+}
+
+.NavItem:hover {
+    font-size: x-large;
+}
+
+.NavItem:nth-child(-n+2):hover {
+    font-size: xx-large;
+} 

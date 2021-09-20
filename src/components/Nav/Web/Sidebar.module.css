@@ -1,0 +1,50 @@
+.NavToolbar {
+  width: 20rem;
+  height: 100vh;
+  background-color: var(--Black);
+  z-index: 1;
+}
+
+.NavLogo {
+  padding: 2rem;
+}
+
+.NavLogo > img {
+  width: 131px;
+  height: auto;
+}
+
+.NavItem {
+  font-size: medium;
+  padding: 0.5rem 2rem;
+  margin: 0 0.5rem;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+}
+
+.NavItem:nth-last-child(-n + 2) svg {
+  height: 30px;
+  padding: 8px;
+}
+
+.NavItem:nth-last-child(2) > span > svg {
+  background: var(--LightGray);
+  border-radius: 3px;
+  color: var(--Black);
+}
+
+.NavItem:last-of-type > span > svg {
+  background: linear-gradient(30deg, white 10%, mediumpurple 90%);
+  border-radius: 3px;
+}
+
+.NavItem:nth-child(3) {
+  margin-bottom: 1.5rem;
+}
+
+.NavItem:hover {
+  background-color: var(--Gray);
+}

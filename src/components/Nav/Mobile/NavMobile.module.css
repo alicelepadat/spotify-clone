@@ -1,0 +1,40 @@
+.NavToolbar {
+    width: auto;
+    max-height: 6rem;
+    display: flex;
+    background-color: var(--SpotifyBlue);
+    align-items: center;
+    justify-content: space-between;
+}
+
+.NavLogo,
+.NavActions {
+    padding: 1rem;
+}
+
+.NavLogo>img {
+    width: 30px;
+    height: auto;
+}
+
+.NavActions {
+    width: 70%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+}
+
+.NavSearch>svg,
+.NavToggle>svg {
+    color:white;
+}
+
+.NavExternal {
+    background-color: white;
+    border-radius: 30px;
+    padding: 0 1.5rem;
+    margin: 0 0.5rem;
+    text-transform: uppercase;
+    font-size: 0.8em;
+    font-weight: bold;
+}
