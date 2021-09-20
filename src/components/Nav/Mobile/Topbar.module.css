@@ -3,7 +3,7 @@
     max-height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: var(--Black);
+    background-color: black;
     z-index: 1;
 }
 
@@ -33,20 +33,6 @@
 .NavSearch>svg,
 .NavToggle>svg {
     color:white;
-}
-
-.NavExternal {
-    background-color: white;
-    border-radius: 30px;
-    padding: 0.8rem 2rem;
-    margin: 0 1rem;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 0.8em;
-}
-
-.NavExternal:hover {
-    background-color: var(--Green);
 }
 
 .NavClose>svg:hover {

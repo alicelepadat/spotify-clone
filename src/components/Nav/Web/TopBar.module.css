@@ -1,12 +1,12 @@
 .NavHeader {
-    width: 100%;
+    width: auto;
     max-height: 5rem;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    background-color: var(--Gray);
+    background-color: var(--Black);
 }
 
 .NavArrows>button>svg {
@@ -20,11 +20,10 @@
 .NavLeftArrow,
 .NavRightArrow {
     border-radius: 50%;
-    background-color: var(--Black);
+    background-color: var(--DarkGray);
     margin: 0 0.2rem;
 }
 
-.NavLogin,
 .NavSignup {
     text-transform: uppercase;
     font-size: 0.8em;
@@ -32,17 +31,6 @@
     color: white;
 }
 
-.NavLogin {
-    background-color: white;
-    border-radius: 30px;
-    padding: 0.8rem 2rem;
-    margin: 0 1rem;
-    color: var(--Black);
-}
-
-.NavLogin:hover {
-    background-color: var(--Green);
-}
 
 .NavRightArrow>svg:hover,
 .NavLeftArrow>svg:hover,

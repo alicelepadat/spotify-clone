@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Button from '../../UI/Button/Button';
 import { ChevronLeft, ChevronRight } from "react-feather";
 
 import classes from './TopBar.module.css';
@@ -30,13 +31,11 @@ const TopBar = () => {
             >
                 Sign up
             </button>
-            <button
-                type={'button'}
-                className={classes["NavLogin"]}
+            <Button
                 aria-label={"Log in"}
             >
                 Log in
-            </button>
+            </Button>
         </div>
     </div>
 

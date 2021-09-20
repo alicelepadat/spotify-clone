@@ -1,7 +1,7 @@
 .NavToolbar {
   width: 20rem;
-  height: 100vh;
-  background-color: var(--Black);
+  height: auto;
+  background-color: black;
   z-index: 1;
 }
 

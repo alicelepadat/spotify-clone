@@ -1,10 +1,11 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 
+import Button from "../../UI/Button/Button";
 import NavItems from "../Items/NavItems";
-import {mobileItems} from "../Items/items";
+import { mobileItems } from "../Items/items";
 
 import spotifyIcon from '../../../images/Spotify_Icon_RGB_Green.webp';
-import {Search, Menu, X} from "react-feather";
+import { Search, Menu, X } from "react-feather";
 
 import classes from './Topbar.module.css';
 
@@ -38,19 +39,17 @@ const Topbar = () => {
                             type="button"
                             aria-label={"Search on Spotify"}
                         >
-                            <Search size={15}/>
+                            <Search size={15} />
                         </button>
                     }
 
                     {
                         !navMobileIsExpanded &&
-                        <button
-                            className={classes["NavExternal"]}
-                            type="button"
+                        <Button
                             aria-label={"Open App"}
                         >
                             Open App
-                        </button>
+                        </Button>
                     }
                     <button
                         className={`${classes["NavToggle"]} ${navMobileIsExpanded ? classes["NavClose"] : ''}`}
@@ -58,14 +57,14 @@ const Topbar = () => {
                         aria-label={"NavMobile Toggle"}
                         onClick={handleNavExpand}
                     >
-                        {!navMobileIsExpanded ? <Menu/> : <X/>}
+                        {!navMobileIsExpanded ? <Menu /> : <X />}
                     </button>
                 </div>
             </div>
             {
                 navMobileIsExpanded &&
                 <div className={classes["NavItems"]}>
-                    <NavItems items={mobileItems} className={classes["NavItem"]}/>
+                    <NavItems items={mobileItems} className={classes["NavItem"]} />
                 </div>
             }
         </nav>

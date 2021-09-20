@@ -1,0 +1,67 @@
+.CardContainer {
+  display: flex;
+  flex-direction: column;
+  background: var(--Black);
+  border-radius: 4px;
+  padding: 16px;
+  width: 100%;
+  color: white;
+  cursor: pointer;
+}
+
+.PlaylistCover {
+  position: relative;
+}
+
+.PlaylistImage {
+  width: 100%;
+  height: 100%;
+  border-radius: 2px;
+}
+
+.PlaylistAction {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: white;
+  background: var(--Green);
+  border-radius: 50%;
+  padding: 0.5rem;
+  margin: 0.2rem;
+}
+
+.PlaylistAction > svg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.PlaylistTitle {
+  margin-top: 1rem;
+  font-size: 1em;
+}
+
+.PlaylistDescription {
+  color: var(--LightGray);
+  font-size: 0.8em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  height: 3em;
+  max-height: 4.5em;
+  line-height: 1.5em;
+}
+
+@media screnn and (min-width: 1024px) {
+  .CardContainer {
+    display: none;
+  }
+
+  .CardContainer:hover {
+    background: var(--Gray);
+  }
+
+  .CardContainer:hover .PlaylistAction {
+    display: block;
+  }
+}

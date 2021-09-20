@@ -1,13 +1,72 @@
-body {
+:root {
+  --Green: #1db964;
+  --Black: #0f0e0e;
+  --DarkGray: #181616;
+  --Gray: #212121;
+  --LightGray: #b3b3b3;
+  --Pink: #af2896;
+  --Blue: #509bf5;
+
+  --minimumColumnWidth: 180px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: "Gotham Medium", sans-serif;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+li {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+@font-face {
+  font-family: "Gotham Medium";
+  src: local("Gotham Medium"), url("./fonts/Gotham-Medium.otf") format("otf");
+}
+
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-family: -apple-system, BlinkMacSystemFont, "Gotham Medium", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  border: none;
+  text-decoration: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: white;
 }

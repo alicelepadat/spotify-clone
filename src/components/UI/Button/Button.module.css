@@ -1,0 +1,14 @@
+.Button {
+  background-color: white;
+  border-radius: 30px;
+  padding: 0.8rem 2rem;
+  margin: 0 1rem;
+  color: var(--Black);
+  text-transform: uppercase;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+.Button:hover {
+  background-color: var(--Green);
+}

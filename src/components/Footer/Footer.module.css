@@ -1,0 +1,39 @@
+.Footer {
+  width: 100vw;
+  height: auto;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-image: linear-gradient(90deg, var(--Pink), var(--Blue));
+  cursor: pointer;
+  z-index: 1;
+}
+
+.FooterContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  color: white;
+  margin-right: 1rem;
+}
+
+.FooterContent > h1 {
+  font-size: 1em;
+  text-transform: uppercase;
+}
+
+.FooterContent p {
+  font-size: 1em;
+  margin-top: 0.4rem;
+}
+
+.PremiumButton {
+  color: var(--Blue);
+  width: 250px;
+}
+
+.PremiumButton:hover {
+  color: white;
+}
