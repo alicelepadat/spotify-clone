@@ -1,5 +1,8 @@
 import React, { useState } from "react";
-
+import {useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
+import {authActions} from "../../../store/authentication-slice";
+import {userPlaylistsActions} from '../../../store/user-playlists-slice';
 import Button from "../../UI/Button/Button";
 import NavItems from "../Items/NavItems";
 import { mobileItems } from "../Items/items";
@@ -11,11 +14,18 @@ import { Search, Menu, X } from "react-feather";
 import classes from './Topbar.module.css';
 
 const Topbar = () => {
-
     const [navMobileIsExpanded, setNavMobileIsExpanded] = useState(false);
 
     const handleNavExpand = () => {
         setNavMobileIsExpanded(!navMobileIsExpanded);
+    }
+
+    const dispatch = useDispatch();
+    const accessToken = useSelector(state => state.auth.accessToken);
+
+    const logoutHandler = () => {
+        dispatch(authActions.logout());
+        dispatch(userPlaylistsActions.restartUserPlaylists());
     }
 
     return <header>
@@ -48,9 +58,9 @@ const Topbar = () => {
                         !navMobileIsExpanded &&
                         <Button
                             aria-label={"Open App"}
-                            onClick={loginHandler}
+                            onClick={accessToken ? logoutHandler : loginHandler}
                         >
-                            Log in
+                            {accessToken ? 'Log out' : 'Log in'}
                         </Button>
                     }
                     <button

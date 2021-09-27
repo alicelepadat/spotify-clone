@@ -1,0 +1,13 @@
+.Footer {
+    width: 100vw;
+    height: 100px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    padding: 0 0.5rem;
+    background: var(--DarkGray);
+    border-top: 1px solid black;
+    cursor: pointer;
+    z-index: 1;
+  }
+  

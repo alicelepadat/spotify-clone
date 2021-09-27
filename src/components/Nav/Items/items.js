@@ -1,4 +1,4 @@
-import {Bookmark, Heart, Home, Plus, Search} from 'react-feather';
+import {Bookmark, Heart, Home, Search} from 'react-feather';
 
 export const mobileItems  = [
     {
@@ -35,10 +35,6 @@ export const webItems = [
     {
         name: 'Your library',
         icon: <Bookmark/>,
-    },
-    {
-        name: 'Create Playlist',
-        icon: <Plus/>,
     },
     {
         name: 'Liked Songs',

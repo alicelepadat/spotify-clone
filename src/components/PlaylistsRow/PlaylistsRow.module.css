@@ -1,5 +1,6 @@
 .PlaylistsContainer {
     width: 100%;
+    min-height: 300px;
     display: flex;
     flex-direction: column;
     padding: 1.5rem;
@@ -7,8 +8,8 @@
 }
 
 .PlaylistRow {
+    grid-column-gap: 24px;
     display: grid;
-    grid-gap: 24px;
     grid-template-columns: repeat(auto-fill,minmax(var(--minimumColumnWidth),1fr));
     grid-auto-rows: 0;
     grid-template-rows: 1fr;

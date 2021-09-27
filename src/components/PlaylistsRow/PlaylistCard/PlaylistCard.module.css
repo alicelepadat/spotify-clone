@@ -14,8 +14,10 @@
 }
 
 .PlaylistImage {
-  width: 100%;
+  min-width: 80px;
+  min-height: 80px;
   height: 100%;
+  width: 100%;
   border-radius: 2px;
 }
 

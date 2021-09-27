@@ -3,6 +3,7 @@ import React from 'react';
 import classes from './NavItems.module.css';
 
 const NavItems = ({items, className}) => {
+
     return <ul className={classes["NavItems"]}>
         {
             items.map((item, i) => (

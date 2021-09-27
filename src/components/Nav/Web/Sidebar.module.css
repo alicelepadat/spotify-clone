@@ -1,6 +1,9 @@
 .NavToolbar {
+  display: flex;
+  flex-direction: column;
   width: 20rem;
-  height: auto;
+  height: 100%;
+  max-height: 100vh;
   background-color: black;
   z-index: 1;
 }
@@ -25,15 +28,9 @@
   cursor: pointer;
 }
 
-.NavItem:nth-last-child(-n + 2) svg {
+.NavItem:last-child svg {
   height: 30px;
   padding: 8px;
-}
-
-.NavItem:nth-last-child(2) > span > svg {
-  background: var(--LightGray);
-  border-radius: 3px;
-  color: var(--Black);
 }
 
 .NavItem:last-of-type > span > svg {
@@ -47,4 +44,39 @@
 
 .NavItem:hover {
   background-color: var(--Gray);
+}
+
+.UserPlaylists {
+  color:var(--LightGray);
+  cursor: pointer;
+  overflow-y: scroll;
+  padding:0;
+  margin-left: 2.5rem;
+  margin-bottom: 0;
+}
+
+.PlaylistItem {
+  padding: 0.5rem 0;
+}
+
+.PlaylistItem:hover {
+  color: white;
+}
+
+.UserPlaylists::-webkit-scrollbar {
+  width: 13px;
+}
+
+.UserPlaylists::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.UserPlaylists::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); 
+  background-color: var(--Gray);
+  height: 50%;
+}
+
+.UserPlaylists::-webkit-scrollbar-thumb:hover {
+  background-color: var(--LightGray);
 }
