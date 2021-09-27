@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Button from "../../UI/Button/Button";
 import NavItems from "../Items/NavItems";
 import { mobileItems } from "../Items/items";
+import {loginHandler} from '../../../utils/functions';
 
 import spotifyIcon from '../../../images/Spotify_Icon_RGB_Green.webp';
 import { Search, Menu, X } from "react-feather";
@@ -47,8 +48,9 @@ const Topbar = () => {
                         !navMobileIsExpanded &&
                         <Button
                             aria-label={"Open App"}
+                            onClick={loginHandler}
                         >
-                            Open App
+                            Log in
                         </Button>
                     }
                     <button

@@ -20,6 +20,7 @@
 }
 
 .PlaylistAction {
+  display: none;
   position: absolute;
   bottom: 0;
   right: 0;
@@ -52,16 +53,16 @@
   line-height: 1.5em;
 }
 
-@media screnn and (min-width: 1024px) {
-  .CardContainer {
-    display: none;
-  }
+.CardContainer:hover {
+  background: var(--Gray);
+}
 
-  .CardContainer:hover {
-    background: var(--Gray);
-  }
+.CardContainer:hover .PlaylistAction {
+  display: block;
+}
 
-  .CardContainer:hover .PlaylistAction {
+@media screen and (max-width: 1024px) {
+  .PlaylistAction {
     display: block;
   }
 }

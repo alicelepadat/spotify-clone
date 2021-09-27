@@ -7,6 +7,7 @@ function Button(props) {
             type="button"
             className={`${classes["Button"]} ${props.className ? props.className : ''}`}
             aria-label={props["aria-label"]}
+            onClick={props.onClick}
         >
             {props.children}
         </button>

@@ -2,12 +2,6 @@ import {Bookmark, Heart, Home, Plus, Search} from 'react-feather';
 
 export const mobileItems  = [
     {
-        name: "Log in"
-    },
-    {
-        name: "Sign up"
-    },
-    {
         name: "Premium",
         link: 'https://www.spotify.com/ro-en/premium/',
     },

@@ -24,16 +24,34 @@
   text-transform: uppercase;
 }
 
-.FooterContent p {
+.FooterContent>p {
   font-size: 1em;
   margin-top: 0.4rem;
 }
 
-.PremiumButton {
+.PremiumButton,
+.PremiumButton>a {
   color: var(--Blue);
   width: 250px;
+  height: auto;
 }
 
-.PremiumButton:hover {
+.PremiumButton:hover>a {
   color: white;
+}
+
+@media screen and (max-width: 768px) {
+  .Footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .FooterContent>h1,
+  .FooterContent>p {
+    font-size: 0.7em;;
+  }
+
+  .PremiumButton {
+    margin: 1rem 0 0.5rem 0;
+  }
 }

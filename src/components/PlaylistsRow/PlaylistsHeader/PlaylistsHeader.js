@@ -1,8 +1,8 @@
 import React from 'react';
 
-import classes from './Row.module.css';
+import classes from './PlaylistsHeader.module.css';
 
-export default function Row({ title, subtitle }) {
+export default function PlaylistsHeader({ title, subtitle }) {
     return (
         <div className={classes["Header"]}>
             <h1>{title}</h1>

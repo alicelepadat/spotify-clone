@@ -52,30 +52,6 @@
     cursor: pointer;
 }
 
-.NavItem:nth-child(-n+2) {
-    font-size: x-large;
-}
-
-.NavItem:nth-child(2) {
-    position: relative;
-    padding-bottom: 1.5rem;
-    margin-bottom: 1rem;
-}
-
-.NavItem:nth-child(2):before {
-    content: " ";
-    position: absolute;
-    bottom: 0;
-    left: 2rem;
-    right: 0;
-    width: 1rem;
-    border: 1px double white;
-}
-
 .NavItem:hover {
     font-size: x-large;
 }
-
-.NavItem:nth-child(-n+2):hover {
-    font-size: xx-large;
-} 

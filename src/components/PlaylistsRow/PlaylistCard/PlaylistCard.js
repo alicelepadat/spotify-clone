@@ -1,11 +1,11 @@
 import React from 'react';
 import { Play } from 'react-feather';
 
-import classes from './Card.module.css';
+import classes from './PlaylistCard.module.css';
 
-export default function Card({ cover, title, description }) {
+export default function PlaylistCard({ cover, title, description, key}) {
     return (
-        <div className={classes["CardContainer"]}>
+        <div key={key} className={classes["CardContainer"]}>
             <div className={classes["PlaylistCover"]}>
                 <img
                     className={classes["PlaylistImage"]}

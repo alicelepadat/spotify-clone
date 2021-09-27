@@ -1,10 +1,10 @@
 import React from 'react';
 
-import Button from '../UI/Button/Button';
+import Button from '../../UI/Button/Button';
 
-import classes from './Footer.module.css';
+import classes from './PremiumFooter.module.css';
 
-export default function Footer() {
+export default function PremiumFooter() {
     return (
         <footer className={classes.Footer}>
             <div className={classes["FooterContent"]}>
@@ -15,7 +15,9 @@ export default function Footer() {
             </div>
             <div className={classes["FooterActions"]}>
                 <Button className={classes["PremiumButton"]} aria-label="Try Premium">
-                    Get 3 months free
+                    <a href={'https://www.spotify.com/ro-en/premium/'} rel={'noreferrer'} target={'_blank'}>
+                        Get 3 months free
+                    </a>
                 </Button>
             </div>
         </footer>

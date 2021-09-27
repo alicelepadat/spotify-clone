@@ -1,17 +1,33 @@
-.PlaylistsContainer {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    padding: 1.5rem;
-    background-color: var(--DarkGray);
+.Browse {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
-.PlaylistList {
-    display: grid;
-    grid-gap: 24px;
-    grid-template-columns: repeat(auto-fill,minmax(var(--minimumColumnWidth),1fr));
-    grid-auto-rows: 0;
-    grid-template-rows: 1fr;
-    overflow-y: hidden;
-    margin: 1rem 0;
+.Message {
+  margin: 3rem;
+}
+
+.Message > p {
+  color: var(--LightGray);
+  font-size: 1em;
+}
+
+.Logo > img {
+  margin: 1rem 0;
+  width: 100px;
+  height: auto;
+}
+
+@media screen and (min-width: 1024px) {
+  .Message > p {
+    font-size: 1.2em;
+  }
+
+  .Logo > img {
+    display: none;
+  }
 }
