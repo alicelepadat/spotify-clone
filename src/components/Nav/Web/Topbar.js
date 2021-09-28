@@ -17,6 +17,7 @@ const TopBar = () => {
     const logoutHandler = () => {
         dispatch(authActions.logout());
         dispatch(userPlaylistsActions.restartUserPlaylists());
+        dispatch(userPlaylistsActions.unselectPlaylist());
     }
 
     return <div className={classes["NavHeader"]}>

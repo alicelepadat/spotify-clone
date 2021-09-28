@@ -6,6 +6,7 @@ import { userPlaylistsActions } from './store/user-playlists-slice';
 import HomeContainer from './components/Home/Container';
 
 import './App.css';
+import {Redirect, Route} from "react-router-dom";
 
 function App() {
 
@@ -39,6 +40,9 @@ function App() {
 
     return (
         <div className="App">
+            <Route exact path="/">
+                <Redirect to="/menu" />
+            </Route>
             <HomeContainer />
         </div>
     );

@@ -1,20 +1,22 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {useLocation} from 'react-router-dom';
 import {useDispatch, useSelector} from "react-redux";
+import {getToken} from '../../utils/functions';
+import {userPlaylistsActions} from "../../store/user-playlists-slice";
 import {authActions} from "../../store/authentication-slice";
+import BASE_URL from '../../utils/api-url';
 
 import HomeWeb from './Web/Home';
 import HomeMobile from './Mobile/Home';
 
-import {getToken} from '../../utils/functions';
 
 export default function Container() {
 
     const dispatch = useDispatch();
     const location = useLocation()
     const authorization = getToken(location.hash);
-
-    const [userData, setUserData] = useState({});
+    const tokenType = useSelector(state => state.auth.tokenType);
+    const token = useSelector(state => state.auth.accessToken);
 
     useEffect(() => {
         if (!localStorage.getItem('access-token')) {
@@ -26,16 +28,10 @@ export default function Container() {
         }
     }, []);
 
-    useEffect(() => {
-        window.location.hash = 'menu';
-    })
-
-    const tokenType = useSelector(state => state.auth.tokenType);
-    const token = useSelector(state => state.auth.accessToken);
 
     useEffect(() => {
         const fetchData = async () => {
-            const response = await fetch('https://api.spotify.com/v1/me', {
+            const response = await fetch(`${BASE_URL}/me`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -45,11 +41,27 @@ export default function Container() {
             return await response.json();
         };
         if (token) {
-            fetchData().then(res => setUserData(res));
+            fetchData().then(res => console.log(res));
         }
     }, [token, tokenType]);
 
-    console.log(userData)
+    useEffect(() => {
+        const fetchPlaylists = async () => {
+            const response = await fetch(
+                `${BASE_URL}/me/playlists`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': tokenType + ' ' + token,
+                    },
+                });
+            return await response.json();
+        };
+        token && fetchPlaylists().then(res =>
+            dispatch(userPlaylistsActions.getUserPlaylists({
+                playlistsData: res.items
+            })));
+    }, [tokenType,token, dispatch]);
 
     let mql = window.matchMedia("all and (min-width: 1024px)")
     const Home = mql.matches ? <HomeWeb/> : <HomeMobile/>

@@ -1,31 +1,42 @@
 import React, { useState } from "react";
 import {useSelector} from "react-redux";
 import {useDispatch} from "react-redux";
+import {useHistory} from "react-router-dom";
+import {loginHandler} from '../../../utils/functions';
+import { mobileItems } from "../Items/items";
 import {authActions} from "../../../store/authentication-slice";
 import {userPlaylistsActions} from '../../../store/user-playlists-slice';
-import Button from "../../UI/Button/Button";
-import NavItems from "../Items/NavItems";
-import { mobileItems } from "../Items/items";
-import {loginHandler} from '../../../utils/functions';
-
 import spotifyIcon from '../../../images/Spotify_Icon_RGB_Green.webp';
 import { Search, Menu, X } from "react-feather";
+
+import Button from "../../UI/Button/Button";
+import NavItems from "../Items/NavItems";
+
 
 import classes from './Topbar.module.css';
 
 const Topbar = () => {
+    const dispatch = useDispatch();
+    const history = useHistory();
+    const accessToken = useSelector(state => state.auth.accessToken);
     const [navMobileIsExpanded, setNavMobileIsExpanded] = useState(false);
 
     const handleNavExpand = () => {
         setNavMobileIsExpanded(!navMobileIsExpanded);
     }
 
-    const dispatch = useDispatch();
-    const accessToken = useSelector(state => state.auth.accessToken);
-
     const logoutHandler = () => {
         dispatch(authActions.logout());
         dispatch(userPlaylistsActions.restartUserPlaylists());
+        dispatch(userPlaylistsActions.unselectPlaylist());
+    }
+
+    const goHomeHandler = () => {
+        history.push({
+            pathname: '/menu',
+            state: undefined,
+        });
+        dispatch(userPlaylistsActions.unselectPlaylist());
     }
 
     return <header>
@@ -33,7 +44,7 @@ const Topbar = () => {
             <div className={classes["NavHeader"]}>
                 {
                     !navMobileIsExpanded &&
-                    <div className={classes["NavLogo"]}>
+                    <div className={classes["NavLogo"]} onClick={goHomeHandler}>
                         <img
                             alt={"Spotify Logo"}
                             src={spotifyIcon}

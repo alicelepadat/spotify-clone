@@ -2,6 +2,7 @@ import {createSlice} from "@reduxjs/toolkit";
 
 const initialState = {
     playlistsData: [],
+    selectedPlaylistId: null,
 }
 
 const userPlaylistsSlice = createSlice({
@@ -13,6 +14,12 @@ const userPlaylistsSlice = createSlice({
         },
         restartUserPlaylists(state) {
             state.playlistsData  =[];
+        },
+        selectPlaylist(state,action) {
+            state.selectedPlaylistId = action.payload.playlistId;
+        },
+        unselectPlaylist(state) {
+            state.selectedPlaylistId = null;
         }
     },
 });
