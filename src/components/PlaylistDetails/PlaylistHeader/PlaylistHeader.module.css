@@ -1,0 +1,52 @@
+
+.PlaylistHeader {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    background: var(--Gray);
+    padding: 1.5rem;
+}
+
+.PlaylistImage {
+    width: auto;
+}
+
+.PlaylistImage>img {
+    width: 192px;
+    height: auto;
+}
+
+.PlaylistDetails {
+    width: auto;
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    color: white;
+    font-size: 12px;
+}
+
+.PlaylistDetails>h1 {
+    font-size: 28px;
+}
+
+.PlaylistDetails> p {
+    padding: 0.3rem 0;
+}
+
+.PlaylistDetails>p:last-of-type {
+    padding-top: 1rem;
+    color: rgba(255,255,255,0.5);
+}
+
+@media screen and (min-width: 1300px) {
+    .PlaylistImage>img {
+        width: 232px;
+        height: auto;
+    }
+
+    .PlaylistDetails>h1 {
+        font-size: 73px;
+    }
+}

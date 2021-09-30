@@ -1,0 +1,9 @@
+.FeaturedPlaylistsContainer {
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.FeaturedPlaylistsContainer>h1 {
+    color:white;
+    font-size: 20px;
+}

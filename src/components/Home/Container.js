@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React, {useEffect} from 'react';
 import {useLocation} from 'react-router-dom';
 import {useDispatch, useSelector} from "react-redux";
@@ -61,7 +63,25 @@ export default function Container() {
             dispatch(userPlaylistsActions.getUserPlaylists({
                 playlistsData: res.items
             })));
-    }, [tokenType,token, dispatch]);
+    }, [tokenType, token, dispatch]);
+
+    useEffect(() => {
+        const fetchUserSavedTracks = async () => {
+            const response = await fetch(`${BASE_URL}/me/tracks?market=RO`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': tokenType + ' ' + token,
+                },
+            });
+            return await response.json();
+        }
+        token && fetchUserSavedTracks()
+            .then(res =>
+                dispatch(userPlaylistsActions.getUserSavedTracks({
+                    tracks: res.items
+                })));
+    }, [dispatch, token, tokenType]);
 
     let mql = window.matchMedia("all and (min-width: 1024px)")
     const Home = mql.matches ? <HomeWeb/> : <HomeMobile/>

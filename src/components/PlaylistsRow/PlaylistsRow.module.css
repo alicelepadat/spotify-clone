@@ -3,8 +3,7 @@
     min-height: 300px;
     display: flex;
     flex-direction: column;
-    padding: 1.5rem;
-    background-color: var(--DarkGray);
+    padding: 1.5rem 1.5rem 0;
 }
 
 .PlaylistRow {
@@ -14,7 +13,7 @@
     grid-auto-rows: 0;
     grid-template-rows: 1fr;
     overflow-y: hidden;
-    margin: 1rem 0;
+    margin: 1rem 0 0;
 }
 
 .ExpandedPlaylistRow {
@@ -26,3 +25,4 @@
     overflow-y: hidden;
     margin: 1rem 0;
 }
+

@@ -14,14 +14,19 @@
 }
 
 .TopBar {
+  z-index: 6;
   grid-area: 1 / 2 / 2 / 3;
+  background-color: rgb(124, 109, 232);
+  background-image: linear-gradient(rgba(0,0,0,.6) 0,rgba(0,0,0,.6) 100%),var(--backgroundNoise);
+  transition: background 1s ease;
 }
 
 .Browse {
+  position: relative;
   grid-area: 2 / 2 / 3 / 3;
-  background-color: var(--DarkGray);
   overflow-y: scroll;
-
+  background: var(--Black);
+  transition: background 1s ease;
 }
 
 .Footer {

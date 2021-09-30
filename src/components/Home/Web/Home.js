@@ -1,7 +1,9 @@
-import React from 'react';
-import {Route} from "react-router-dom";
-import { useSelector } from 'react-redux';
+/* eslint-disable */
 
+import React, {useEffect, useRef} from 'react';
+import {Route} from "react-router-dom";
+import {useDispatch, useSelector} from 'react-redux';
+import {userPlaylistsActions} from "../../../store/user-playlists-slice";
 import PremiumFooter from '../../Footer/PremiumFooter/PremiumFooter';
 import PlaybarFooter from '../../Footer/PlaybarFooter/PlaybarFooter';
 import Sidebar from '../../Nav/Web/Sidebar';
@@ -12,28 +14,63 @@ import PlaylistsRow from "../../PlaylistsRow/PlaylistsRow"
 import PlaylistDetails from "../../PlaylistDetails/PlaylistDetails";
 
 import classes from './Home.module.css';
+import useImageColor from "use-image-color";
 
 export default function Home() {
 
+    const dispatch = useDispatch();
+    const topbarRef = useRef();
     const accessToken = useSelector(state => state.auth.accessToken);
-    const selectedPlaylistId = useSelector(state => state.userPlaylists.selectedPlaylistId);
+
+    useEffect(() => {
+        const id = localStorage.getItem('selected-playlist-id');
+        if (id) {
+            dispatch(userPlaylistsActions.selectPlaylist({playlistId: id}));
+        }
+    }, []);
+
+    const currentImg = localStorage.getItem('current-cover');
+    const {colors} = useImageColor(currentImg, {cors: true, colors: 2});
+    const playlistHover = useSelector(state => state.userPlaylists.playlistCoverHover);
+
+    useEffect(() => {
+        if (location.pathname === '/menu') {
+            if (playlistHover && colors) {
+                if (topbarRef.current) {
+                    topbarRef.current.style.backgroundColor = `${colors[0]}`;
+                }
+            } else {
+                if (topbarRef.current) {
+                    topbarRef.current.style.backgroundColor = 'rgb(124, 109, 232)';
+                }
+            }
+        }
+    }, [playlistHover, topbarRef, colors, location]);
+
+    useEffect(() => {
+        if (accessToken && topbarRef.current) {
+            topbarRef.current.style.backgroundColor = 'rgb(124, 109, 232)';
+        } else {
+            topbarRef.current.style.backgroundColor = 'black';
+        }
+    }, []);
 
     return (
         <div className={classes["RootContainer"]}>
             <div className={classes["SideBar"]}>
-                <Sidebar />
+                <Sidebar/>
             </div>
-            <div className={classes["TopBar"]}>
-                <TopBar />
+            <div ref={topbarRef} className={classes["TopBar"]}>
+                <TopBar/>
             </div>
             <div className={classes["Browse"]}>
-                <Route path={'/search'} component={Search}/>
-                <Route path={'/menu'} component={Browse} />
-                <Route path={'/playlists'} component={PlaylistsRow} />
-                {selectedPlaylistId && <Route path={'/playlist'} component={PlaylistDetails}/>}
+                {accessToken && <Route path={'/search'} component={Search}/>}
+                <Route path={'/menu'} component={Browse}/>
+                {accessToken && <Route path={'/playlists'} component={PlaylistsRow}/>}
+                {accessToken && <Route path={'/playlist'} component={PlaylistDetails}/>}
             </div>
             <div className={classes["Footer"]}>
-                {accessToken ? <PlaybarFooter /> : <PremiumFooter />}
+                {accessToken ? <PlaybarFooter/> : <PremiumFooter/>}
             </div>
         </div>
     )

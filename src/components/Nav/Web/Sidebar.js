@@ -1,6 +1,7 @@
 import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {useHistory} from "react-router-dom";
+import {userPlaylistsActions} from "../../../store/user-playlists-slice";
 
 import NavItems from '../Items/NavItems';
 
@@ -8,7 +9,6 @@ import {webItems} from '../Items/items';
 import spotifyLogo from '../../../images/Spotify_Logo_RGB_White.webp';
 
 import classes from './Sidebar.module.css';
-import {userPlaylistsActions} from "../../../store/user-playlists-slice";
 
 const Sidebar = () => {
     const history = useHistory();

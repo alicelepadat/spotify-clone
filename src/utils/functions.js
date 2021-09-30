@@ -17,4 +17,4 @@ export const getToken = (url) => {
             prev[title] = value;
             return prev;
         }, {});
-}
+};

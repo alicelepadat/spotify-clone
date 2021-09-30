@@ -6,15 +6,16 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  background-color: var(--Black);
+  background-color: transparent;
+}
+
+.NavArrows {
+  display: flex;
 }
 
 .NavArrows > button > svg {
   color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.2rem 0;
+  padding: 0.2rem;
 }
 
 .NavLeftArrow,
@@ -22,6 +23,11 @@
   border-radius: 50%;
   background-color: var(--DarkGray);
   margin: 0 0.2rem;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .NavRightArrow > svg:hover,

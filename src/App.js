@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from "react-redux"
-import { authActions } from "./store/authentication-slice";
-import { userPlaylistsActions } from './store/user-playlists-slice';
+import React, {useEffect} from 'react';
+import {useDispatch, useSelector} from "react-redux"
+import {authActions} from "./store/authentication-slice";
+import {userPlaylistsActions} from './store/user-playlists-slice';
 
 import HomeContainer from './components/Home/Container';
 
@@ -11,18 +11,23 @@ import {Redirect, Route} from "react-router-dom";
 function App() {
 
     const dispatch = useDispatch();
+    const accessToken = useSelector(state=>state.auth.accessToken);
+
+    const logoutHandler = () => {
+        dispatch(authActions.logout());
+        dispatch(userPlaylistsActions.restartUserPlaylists());
+        dispatch(userPlaylistsActions.unselectPlaylist());
+        dispatch(userPlaylistsActions.restartUserSavedTracks());
+    };
 
     useEffect(() => {
         const token = localStorage.getItem('access-token');
         if (!token) {
-            dispatch(authActions.logout());
-            dispatch(userPlaylistsActions.restartUserPlaylists());
+            logoutHandler();
         } else {
             const expirationDate = new Date(localStorage.getItem('expiration-date'));
             if (expirationDate <= new Date()) {
-                dispatch(authActions.logout());
-                dispatch(userPlaylistsActions.restartUserPlaylists());
-
+                logoutHandler();
             } else {
                 const tokenType = localStorage.getItem('token-type');
                 dispatch(authActions.authenticate({
@@ -31,8 +36,7 @@ function App() {
                     expirationTime: (expirationDate.getTime() - new Date().getTime()) / 1000,
                 }))
                 setTimeout(() => {
-                    dispatch(authActions.logout());
-                    dispatch(userPlaylistsActions.restartUserPlaylists());
+                    logoutHandler();
                 }, expirationDate.getTime() - new Date().getTime());
             }
         }
@@ -41,9 +45,10 @@ function App() {
     return (
         <div className="App">
             <Route exact path="/">
-                <Redirect to="/menu" />
+                <Redirect to="/menu"/>
             </Route>
-            <HomeContainer />
+            {!accessToken && <Redirect to="/menu"/>}
+            <HomeContainer/>
         </div>
     );
 }

@@ -27,17 +27,26 @@ export const webItems = [
     {
         name: 'Home',
         icon: <Home/>,
+        pathname: '/menu',
     },
     {
         name: 'Search',
         icon: <Search/>,
+        pathname: '/search',
     },
     {
         name: 'Your library',
         icon: <Bookmark/>,
+        pathname: '/playlists',
+        state: {
+            className: 'ExpandedPlaylistRow',
+            showBtn: false,
+        }
     },
     {
         name: 'Liked Songs',
         icon: <Heart/>,
+        pathname: '/playlist',
+        state: true,
     },
 ]

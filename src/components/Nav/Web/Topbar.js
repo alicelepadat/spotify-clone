@@ -18,6 +18,7 @@ const TopBar = () => {
         dispatch(authActions.logout());
         dispatch(userPlaylistsActions.restartUserPlaylists());
         dispatch(userPlaylistsActions.unselectPlaylist());
+        dispatch(userPlaylistsActions.restartUserSavedTracks());
     }
 
     return <div className={classes["NavHeader"]}>

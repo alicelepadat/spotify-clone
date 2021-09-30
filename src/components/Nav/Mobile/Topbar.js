@@ -12,7 +12,6 @@ import { Search, Menu, X } from "react-feather";
 import Button from "../../UI/Button/Button";
 import NavItems from "../Items/NavItems";
 
-
 import classes from './Topbar.module.css';
 
 const Topbar = () => {
@@ -29,6 +28,7 @@ const Topbar = () => {
         dispatch(authActions.logout());
         dispatch(userPlaylistsActions.restartUserPlaylists());
         dispatch(userPlaylistsActions.unselectPlaylist());
+        dispatch(userPlaylistsActions.restartUserSavedTracks());
     }
 
     const goHomeHandler = () => {
@@ -40,7 +40,7 @@ const Topbar = () => {
     }
 
     return <header>
-        <nav className={classes["NavToolbar"]}>
+        <nav className={classes["NavToolbar"]} style={{background: navMobileIsExpanded && '#0f0e0e'}}>
             <div className={classes["NavHeader"]}>
                 {
                     !navMobileIsExpanded &&

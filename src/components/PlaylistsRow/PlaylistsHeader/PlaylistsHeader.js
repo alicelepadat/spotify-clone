@@ -1,9 +1,9 @@
 import React from 'react';
-
-import classes from './PlaylistsHeader.module.css';
 import {useHistory} from "react-router-dom";
 
-export default function PlaylistsHeader({title, subtitle}) {
+import classes from './PlaylistsHeader.module.css';
+
+export default function PlaylistsHeader({title, subtitle,playlists}) {
 
     const history = useHistory();
     const showBtn = history.location.state ? history.location.state.showBtn : true;
@@ -14,6 +14,7 @@ export default function PlaylistsHeader({title, subtitle}) {
             state: {
                 className: 'ExpandedPlaylistRow',
                 showBtn: false,
+                playlists: playlists
             }
         });
     };

@@ -1,0 +1,87 @@
+.PlaylistItems {
+    width: 100%;
+    height: auto;
+    padding: 1.5rem;
+}
+
+.PlaylistItemsTable {
+    width: 100%;
+    color: var(--LightGray);
+    border-collapse: collapse;
+}
+
+.TableHead>th {
+    border-bottom: 1px solid var(--LightGray);
+}
+
+.SongRow {
+    height: 56px;
+}
+
+.SongNumber {
+    text-align: right;
+    width: 5%;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.PlaySongBtn {
+    display: none;
+}
+
+.SongTitleHead,
+.SongTitle {
+    width: 30%;
+    text-align: left;
+}
+
+.SongTitleHead {
+    padding: 0 1rem;
+}
+
+.SongTitle {
+    width: 100%;
+    display: flex;
+    padding: 0.5rem 1rem;
+}
+
+.SongTitle>img {
+    width: 40px;
+    height: auto;
+    margin-right: 1rem;
+}
+
+.SongAlbum {
+    width: 35%;
+    text-align: left;
+}
+
+.SongAdded {
+    width: 20%;
+    text-align: left;
+}
+
+.SongDuration {
+    width: 10%;
+    text-align: right;
+    padding: 0 0.5rem;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.SongRow:hover {
+    background-color: var(--Gray);
+}
+
+.SongRow:hover .SongNumber>span {
+    display: none;
+}
+
+.SongRow:hover .PlaySongBtn{
+    display: flex;
+    justify-content: flex-end;
+    float: right;
+    width: 30px;
+    height: 30px;
+    color: white;
+}

@@ -5,10 +5,12 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  background-color: transparent;
 }
 
 .Message {
   margin: 3rem;
+  padding-top: 5rem;
 }
 
 .Message > p {
@@ -22,7 +24,18 @@
   height: auto;
 }
 
+.BrowseMainSection {
+  width: 100%;
+  background-color: rgb(124, 109, 232);
+  background-image: linear-gradient(rgba(0,0,0,.6) 0,var(--Black) 100%),var(--backgroundNoise);
+  transition: background 1s ease;
+}
+
 @media screen and (min-width: 1024px) {
+  .Message {
+    padding-top: 0;
+  }
+
   .Message > p {
     font-size: 1.2em;
   }
