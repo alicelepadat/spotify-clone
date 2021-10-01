@@ -22,6 +22,8 @@ export default function Home() {
     const topbarRef = useRef();
     const accessToken = useSelector(state => state.auth.accessToken);
 
+    console.log(accessToken)
+
     useEffect(() => {
         const id = localStorage.getItem('selected-playlist-id');
         if (id) {
@@ -33,27 +35,23 @@ export default function Home() {
     const {colors} = useImageColor(currentImg, {cors: true, colors: 2});
     const playlistHover = useSelector(state => state.userPlaylists.playlistCoverHover);
 
+
     useEffect(() => {
-        if (location.pathname === '/menu') {
-            if (playlistHover && colors) {
-                if (topbarRef.current) {
+        if (topbarRef.current && accessToken) {
+            if (location.pathname === '/menu') {
+                if (playlistHover && colors) {
                     topbarRef.current.style.backgroundColor = `${colors[0]}`;
-                }
-            } else {
-                if (topbarRef.current) {
+                } else {
                     topbarRef.current.style.backgroundColor = 'rgb(124, 109, 232)';
                 }
             }
-        }
-    }, [playlistHover, topbarRef, colors, location]);
-
-    useEffect(() => {
-        if (accessToken && topbarRef.current) {
-            topbarRef.current.style.backgroundColor = 'rgb(124, 109, 232)';
         } else {
-            topbarRef.current.style.backgroundColor = 'black';
+            topbarRef.current.style.backgroundColor = '#0f0e0e';
         }
-    }, []);
+        if (!accessToken) {
+            topbarRef.current.style.backgroundColor = '#0f0e0e';
+        }
+    }, [playlistHover, colors, location.pathname,accessToken]);
 
     return (
         <div className={classes["RootContainer"]}>

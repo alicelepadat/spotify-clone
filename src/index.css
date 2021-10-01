@@ -42,7 +42,7 @@ body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
-  font-family: -apple-system, BlinkMacSystemFont, "Gotham Medium", sans-serif;
+  font-family: sans-serif, "Helvetica Neue", "Helvetica", "Arial", "Gotham Medium";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

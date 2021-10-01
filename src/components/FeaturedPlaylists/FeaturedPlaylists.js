@@ -25,18 +25,17 @@ const FeaturedPlaylists = () => {
         }
         if (token) {
             fetchFeaturedPlaylists().then(res => {
-                console.log(res);
                 const playlists = [];
                 setFeaturedTitle(res.message);
-                res.playlists.items.map(item => playlists.push(
-                    item
-                ));
-                setFeaturedPlaylists(playlists);
+                if (res.playlists) {
+                    res.playlists.items.map(item => playlists.push(
+                        item
+                    ));
+                    setFeaturedPlaylists(playlists);
+                }
             });
         }
-    }, []);
-
-    console.log(featuredPlaylists)
+    }, [token]);
 
 
     return <div className={classes["FeaturedPlaylistsContainer"]}>

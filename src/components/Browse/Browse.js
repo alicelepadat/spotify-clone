@@ -14,16 +14,19 @@ export default function Browse() {
     const accessToken = useSelector(state => state.auth.accessToken);
     const userPlaylists = useSelector(state => state.userPlaylists.playlistsData)
 
-    useEffect(() => {
-        window.location.hash = '';
-    });
-
     const location = useLocation();
     const browseRef = useRef();
 
     const currentImg = localStorage.getItem('current-cover');
     const {colors} = useImageColor(currentImg, {cors: true, colors: 2});
     const playlistHover = useSelector(state => state.userPlaylists.playlistCoverHover);
+
+    useEffect(() => {
+        const clearHash = ()=> {
+            window.location.hash = '';
+        }
+        clearHash();
+    },[]);
 
     useEffect(() => {
         if (location.pathname === '/menu') {
@@ -38,6 +41,8 @@ export default function Browse() {
             }
         }
     }, [playlistHover, browseRef, colors, location]);
+
+
 
     return (
         <div className={classes["Browse"]}>

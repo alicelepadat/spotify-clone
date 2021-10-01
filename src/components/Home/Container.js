@@ -16,12 +16,12 @@ export default function Container() {
 
     const dispatch = useDispatch();
     const location = useLocation()
-    const authorization = getToken(location.hash);
     const tokenType = useSelector(state => state.auth.tokenType);
     const token = useSelector(state => state.auth.accessToken);
 
     useEffect(() => {
-        if (!localStorage.getItem('access-token')) {
+        if (location.hash && !localStorage.getItem('access-token')) {
+            const authorization = getToken(location.hash);
             dispatch(authActions.authenticate({
                 accessToken: authorization['#access_token'],
                 expirationTime: +authorization['expires_in'],
@@ -63,7 +63,7 @@ export default function Container() {
             dispatch(userPlaylistsActions.getUserPlaylists({
                 playlistsData: res.items
             })));
-    }, [tokenType, token, dispatch]);
+    }, [tokenType, token]);
 
     useEffect(() => {
         const fetchUserSavedTracks = async () => {
@@ -81,7 +81,7 @@ export default function Container() {
                 dispatch(userPlaylistsActions.getUserSavedTracks({
                     tracks: res.items
                 })));
-    }, [dispatch, token, tokenType]);
+    }, [token, tokenType]);
 
     let mql = window.matchMedia("all and (min-width: 1024px)")
     const Home = mql.matches ? <HomeWeb/> : <HomeMobile/>

@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {useDispatch, useSelector} from "react-redux"
+import {useDispatch} from "react-redux"
 import {authActions} from "./store/authentication-slice";
 import {userPlaylistsActions} from './store/user-playlists-slice';
 
@@ -11,7 +11,6 @@ import {Redirect, Route} from "react-router-dom";
 function App() {
 
     const dispatch = useDispatch();
-    const accessToken = useSelector(state=>state.auth.accessToken);
 
     const logoutHandler = () => {
         dispatch(authActions.logout());
@@ -22,6 +21,7 @@ function App() {
 
     useEffect(() => {
         const token = localStorage.getItem('access-token');
+        console.log(token)
         if (!token) {
             logoutHandler();
         } else {
@@ -45,9 +45,8 @@ function App() {
     return (
         <div className="App">
             <Route exact path="/">
-                <Redirect to="/menu"/>
+                <Redirect to="/menu" />
             </Route>
-            {!accessToken && <Redirect to="/menu"/>}
             <HomeContainer/>
         </div>
     );

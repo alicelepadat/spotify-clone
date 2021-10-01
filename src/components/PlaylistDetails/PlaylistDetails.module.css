@@ -6,7 +6,6 @@
     flex-direction: column;
     justify-content: flex-start;
     align-content: flex-start;
-    padding-top: 5rem;
 }
 
 .ContentSpacing {
@@ -34,10 +33,4 @@
 .PlayingBtn:hover>svg{
     width: 20px;
     height: 20px;
-}
-
-@media screen and (min-width: 1024px) {
-    .PlaylistItemsContainer {
-        padding-top: 0;
-    }
 }
