@@ -1,6 +1,6 @@
-import React, {useEffect, useRef} from 'react';
-import {useSelector} from "react-redux";
-import {useLocation} from "react-router-dom";
+import React, { useEffect, useRef } from 'react';
+import { useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
 import useImageColor from "use-image-color";
 
 import FeaturedPlaylists from "../FeaturedPlaylists/FeaturedPlaylists";
@@ -18,15 +18,15 @@ export default function Browse() {
     const browseRef = useRef();
 
     const currentImg = localStorage.getItem('current-cover');
-    const {colors} = useImageColor(currentImg, {cors: true, colors: 2});
+    const { colors } = useImageColor(currentImg, { cors: true, colors: 2 });
     const playlistHover = useSelector(state => state.userPlaylists.playlistCoverHover);
 
     useEffect(() => {
-        const clearHash = ()=> {
+        const clearHash = () => {
             window.location.hash = '';
         }
         clearHash();
-    },[]);
+    }, []);
 
     useEffect(() => {
         if (location.pathname === '/menu') {
@@ -53,9 +53,9 @@ export default function Browse() {
                         of the page.</p>
                     <div className={classes["Logo"]}>
                         <img alt={"Spotify Logo"}
-                             src={spotifyLogo}
-                             width={100}
-                             height={30}
+                            src={spotifyLogo}
+                            width={100}
+                            height={30}
                         />
                     </div>
                 </div>
@@ -74,7 +74,7 @@ export default function Browse() {
                 )
             }
             {
-                accessToken && <FeaturedPlaylists/>
+                accessToken && <FeaturedPlaylists />
             }
         </div>
     )

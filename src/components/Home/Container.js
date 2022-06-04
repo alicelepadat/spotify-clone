@@ -1,16 +1,15 @@
 /* eslint-disable */
 
-import React, {useEffect} from 'react';
-import {useLocation} from 'react-router-dom';
-import {useDispatch, useSelector} from "react-redux";
-import {getToken} from '../../utils/functions';
-import {userPlaylistsActions} from "../../store/user-playlists-slice";
-import {authActions} from "../../store/authentication-slice";
+import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux";
+import { getToken } from '../../utils/functions';
+import { userPlaylistsActions } from "../../store/user-playlists-slice";
+import { authActions } from "../../store/authentication-slice";
 import BASE_URL from '../../utils/api-url';
 
 import HomeWeb from './Web/Home';
 import HomeMobile from './Mobile/Home';
-
 
 export default function Container() {
 
@@ -51,12 +50,12 @@ export default function Container() {
         const fetchPlaylists = async () => {
             const response = await fetch(
                 `${BASE_URL}/me/playlists`, {
-                    method: 'GET',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': tokenType + ' ' + token,
-                    },
-                });
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': tokenType + ' ' + token,
+                },
+            });
             return await response.json();
         };
         token && fetchPlaylists().then(res =>
@@ -84,7 +83,7 @@ export default function Container() {
     }, [token, tokenType]);
 
     let mql = window.matchMedia("all and (min-width: 1024px)")
-    const Home = mql.matches ? <HomeWeb/> : <HomeMobile/>
+    const Home = mql.matches ? <HomeWeb /> : <HomeMobile />
 
     return <React.Fragment>
         {Home}
